@@ -40,3 +40,21 @@ The credentials are stored in your Home directory on `.webcursinc/data.json`
 
 Let's see it in action  
 ![demo](https://github.com/open-source-uc/webcursinc/blob/assets/demo.gif)
+
+### Development
+
+Clone the repo
+```
+git clone https://github.com/open-source-uc/webcursinc.git
+```
+
+Install dependencies
+```
+# with yarn:
+yarn
+
+# with npm:
+npm i
+```
+
+Check the [contributing guide](https://github.com/open-source-uc/webcursinc/blob/dev/CONTRIBUTING.md)

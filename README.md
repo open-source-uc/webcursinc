@@ -51,7 +51,7 @@ git clone https://github.com/open-source-uc/webcursinc.git
 ```
 
 Install dependencies
-```js
+```
 # with yarn:
 yarn
 

@@ -18,10 +18,11 @@ class Portal {
           const coursesData = []
           const courseData = (i, l) => {
             const name = $(l).text()
-            const nameRegex = regex.exec(name)
-            if (!nameRegex) {
+            const nameMatch = name.match(regex)
+            if (!nameMatch) {
               return
             }
+            const nameRegex = regex.exec(nameMatch[0])
             const courseData = {
               year: nameRegex[1],
               semester: nameRegex[2],

@@ -1,24 +1,34 @@
-const cheerio = require('cheerio');
-const iconv = require('iconv-lite');
-const fs = require('fs');
-const request = require('./request');
-const urls = require('./urls');
+const cheerio = require('cheerio')
+const iconv = require('iconv-lite')
+const fs = require('fs')
+const request = require('./request')
+const urls = require('./urls')
 // const folder = require('./folder');
 // const file = require('./file');
-// const format = require('./format');
+const format = require('./format')
 
 class Course {
-  constructor(acronym, name, url) {
-    this.acronym = acronym;
-    this.name = name;
-    this.url = url;
-    this.folders = {};
-    this.files = {};
+  constructor(courseData) {
+    this.year = courseData.year
+    this.semester = courseData.semester
+    this.acronym = courseData.acronym
+    this.section = courseData.section
+    this.name = courseData.name
+
+    this.folders = {}
+    this.files = {}
   }
 
   scrap() {
-    // this.folders = {};
-    // this.files = {};
+    this.folders = {}
+    this.files = {}
+    return new Promise((res, rej) => {
+      request({url: this.url, encoding: null}, (err, http, body) => {
+        // console.log(this.url);
+        // console.log(body);
+        res(this)
+      })
+    })
     // return new Promise((res, rej) => {
     //   request({url: this.url, encoding: null}, (err, http, body) => {
     //     if (err) {
@@ -95,8 +105,8 @@ class Course {
   }
 
   path(path = '') {
-    // const parentPath = (path !== '' && path + '/') || '';
-    // return parentPath + this.acronym + ' ' + format.nameCleaned(this.name);
+    const parentPath = (path !== '' && path + '/') || ''
+    return parentPath + this.acronym + ' ' + format.nameCleaned(this.name)
   }
 
   createFolder(path) {
@@ -106,4 +116,4 @@ class Course {
   }
 }
 
-module.exports = Course;
+module.exports = Course

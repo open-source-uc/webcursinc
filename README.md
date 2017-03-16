@@ -59,4 +59,14 @@ yarn
 npm i
 ```
 
+To test you have two options
+```
+# run from project folder
+node index.js
+
+# or link it to run it from everywhere
+npm link
+webcursinc
+```
+
 Check the [contributing guide](https://github.com/open-source-uc/webcursinc/blob/dev/CONTRIBUTING.md)

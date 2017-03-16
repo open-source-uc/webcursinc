@@ -15,9 +15,8 @@ class Portal {
           }
           console.log('Parsing courses list')
           const regex = /(\d+)-(\d+)-([a-z]+\d+)-(\d) ([ ,a-zA-Zá-úÁ-Ú]+)/g
-          const coursesData = []
-          const courseData = (i, l) => {
-            const name = $(l).text()
+          const courseData = i => {
+            const name = $(i).text()
             const nameMatch = name.match(regex)
             if (!nameMatch) {
               return
@@ -30,22 +29,26 @@ class Portal {
               section: nameRegex[4],
               name: nameRegex[5],
             }
-            coursesData.push(courseData)
+            return courseData
           }
-          const dataFilter = k => Number(k) >= 0
+          const validFilter = c => c && c.acronym
           const ignoreFilter = c => ignore.indexOf(c.acronym) === -1
           const courseObject = d => new course(d)
           const $ = cheerio.load(iconv.decode(body, 'ISO-8859-1'))
           const coursesUpperBar = $('ul#siteLinkList')
             .find('li')
             .find('a')
-            .each(courseData)
+            .toArray()
           const coursesMore = $('div#selectNav')
             .find('select')
             .find('option')
-            .each(courseData)
-            .filter(dataFilter)
-          const courses = coursesData.filter(ignoreFilter).map(courseObject)
+            .toArray()
+          const courses = []
+            .concat(coursesUpperBar, coursesMore)
+            .map(courseData)
+            .filter(validFilter)
+            .filter(ignoreFilter)
+            .map(courseObject)
           res(courses)
         })
       })

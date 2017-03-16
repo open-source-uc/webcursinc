@@ -14,20 +14,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Login using [@wachunei] direct uc login
-- Get courses list
+- Get courses list [@negebauer]
 - Format courses name using [@aaossa] formatter
 
 [Unreleased]: https://github.com/open-source-uc/sincding/compare/83e9b152a79f3616dd7d10143f0ebf50056c52fe...HEAD
 
 ## Contributors
-[@negebauer]
+
 [@negebauer]:https://github.com/negebauer
-[@mrpatiwi]
+[@negebauer]
+
 [@mrpatiwi]:https://github.com/mrpatiwi
-[@wachunei]
+[@mrpatiwi]
+
 [@wachunei]:https://github.com/wachunei
-[@aaossa]
+[@wachunei]
+
 [@aaossa]:https://github.com/aaossa
+[@aaossa]
 
 ## Contributing
 

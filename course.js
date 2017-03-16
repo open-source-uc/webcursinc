@@ -8,11 +8,10 @@ const urls = require('./urls');
 // const format = require('./format');
 
 class Course {
-  constructor(id, acronym, name) {
-    this.id = id;
+  constructor(acronym, name, url) {
     this.acronym = acronym;
     this.name = name;
-    this.url = urls.courseURL(id);
+    this.url = url;
     this.folders = {};
     this.files = {};
   }

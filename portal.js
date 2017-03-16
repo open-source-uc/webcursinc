@@ -41,8 +41,6 @@ class Portal {
               const link = $(l).val();
               const linkName = $(l).text();
               const linkNameRegex = regex.exec(linkName);
-              console.log(linkName);
-              console.log(linkNameRegex);
               if (!linkNameRegex) {
                 return empty;
               }
@@ -56,7 +54,8 @@ class Portal {
           const courses = []
             .concat(array1, array2)
             .filter(i => i.link)
-            .filter(i => ignore.indexOf(i.acronym) === -1);
+            .filter(i => ignore.indexOf(i.acronym) === -1)
+            .map(d => new course(d.acronym, d.name, d.link));
           console.log('courses');
           console.log(courses);
         });

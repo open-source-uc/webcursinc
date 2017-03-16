@@ -45,8 +45,6 @@ class Portal {
             .each(courseData)
             .filter(dataFilter)
           const courses = coursesData.filter(ignoreFilter).map(courseObject)
-          console.log('courses')
-          console.log(courses)
           res(courses)
         })
       })

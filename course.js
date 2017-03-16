@@ -23,9 +23,9 @@ class Course {
     this.folders = {}
     this.files = {}
     return new Promise((res, rej) => {
-      request({url: this.url, encoding: null}, (err, http, body) => {
-        // console.log(this.url);
-        // console.log(body);
+      request({url: urls.course(this), encoding: null}, (err, http, body) => {
+        const $ = cheerio.load(iconv.decode(body, 'ISO-8859-1'))
+        // console.log($.html())
         res(this)
       })
     })

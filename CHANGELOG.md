@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [//]: # (Security)
 
 ### Added
+- Login using [@wachunei] direct uc login
 - Get courses list
 - Format courses name using [@aaossa] formatter
 
@@ -23,6 +24,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [@negebauer]:https://github.com/negebauer
 [@mrpatiwi]
 [@mrpatiwi]:https://github.com/mrpatiwi
+[@wachunei]
+[@wachunei]:https://github.com/wachunei
 [@aaossa]
 [@aaossa]:https://github.com/aaossa
 

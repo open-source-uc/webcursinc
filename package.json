@@ -1,0 +1,28 @@
+{
+  "name": "webcursinc",
+  "version": "0.0.1",
+  "description": "CLI to download Webcurso files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-source-uc/webcursinc"
+  },
+  "author": {
+    "name": "Nicolas Gebauer",
+    "mail": "negebauer@uc.cl",
+    "url": "http://negebauer.github.io"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "iconv-lite": "^0.4.15",
+    "prompt": "^1.0.0",
+    "request": "^2.80.0",
+    "update-notifier": "^2.1.0"
+  },
+  "bin": {
+    "webcursinc": "index.js"
+  }
+}

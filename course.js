@@ -25,28 +25,59 @@ class Course {
     return new Promise((res, rej) => {
       request({url: urls.course(this), encoding: null}, (err, http, body) => {
         const $ = cheerio.load(iconv.decode(body, 'ISO-8859-1'))
-        // console.log($.html())
+        const resourcesLink = $('a.icon-sakai-resources').attr('href')
+        request({url: resourcesLink, encoding: null}, (err, http, body) => {
+          const $ = cheerio.load(iconv.decode(body, 'ISO-8859-1'))
+          const resourcesLink = $('div.title').find('a').attr('href')
+          if (this.acronym !== 'ENF400') {
+            // TODO: REMOVE THIS PIECE OF CODE DUMBASS
+            return res(this)
+          }
+          return this.scrapResources(resourcesLink)
+        })
+      })
+    })
+  }
+
+  scrapResources(link) {
+    return new Promise((res, rej) => {
+      request({url: link, encoding: null}, (err, http, body) => {
+        const $ = cheerio.load(iconv.decode(body, 'ISO-8859-1'))
+        const data = $('table.centerLines')
+          .find('h4')
+          .find('a')
+          .toArray()
+          .map(i => $(i).text().replace(/[\t\r\n]+/g, ''))
+        console.log(data)
+        // const table = $('table')
+
+        // $('table.lines').find('a').each((i, l) => {
+        //   console.log('i')
+        //   console.log(i)
+        //   console.log('l')
+        //   console.log(l)
+        // })
         res(this)
       })
     })
-    // return new Promise((res, rej) => {
-    //   request({url: this.url, encoding: null}, (err, http, body) => {
-    //     if (err) {
-    //       rej(err);
-    //     }
-    //     console.log(`Parsing ${this.path()}`);
-    //     const newFolders = this.searchFoldersAndFiles(body, this);
-    //     if (newFolders.length === 0) {
-    //       return res(this);
-    //     }
-    //     Promise.all(
-    //       newFolders.map(folder => this.scrapFolder(folder)),
-    //     ).then(() => {
-    //       res(this);
-    //     });
-    //   });
-    // });
   }
+  // return new Promise((res, rej) => {
+  //   request({url: this.url, encoding: null}, (err, http, body) => {
+  //     if (err) {
+  //       rej(err);
+  //     }
+  //     console.log(`Parsing ${this.path()}`);
+  //     const newFolders = this.searchFoldersAndFiles(body, this);
+  //     if (newFolders.length === 0) {
+  //       return res(this);
+  //     }
+  //     Promise.all(
+  //       newFolders.map(folder => this.scrapFolder(folder)),
+  //     ).then(() => {
+  //       res(this);
+  //     });
+  //   });
+  // });
 
   scrapFolder(folder) {
     // return new Promise((res, rej) => {

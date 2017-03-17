@@ -3,17 +3,25 @@ const iconv = require('iconv-lite')
 const fs = require('fs')
 const request = require('./request')
 const urls = require('./urls')
-// const folder = require('./folder');
-// const file = require('./file');
+const folder = require('./folder')
+const file = require('./file')
 const format = require('./format')
+const warning = require('./warning')
 
 class Course {
   constructor(courseData) {
-    this.year = courseData.year
-    this.semester = courseData.semester
-    this.acronym = courseData.acronym
-    this.section = courseData.section
-    this.name = courseData.name
+    const {
+      year,
+      semester,
+      acronym,
+      section,
+      name
+    } = courseData
+    this.year = year
+    this.semester = semester
+    this.acronym = acronym
+    this.section = section
+    this.name = name
 
     this.folders = {}
     this.files = {}
@@ -24,15 +32,11 @@ class Course {
     this.files = {}
     return new Promise((res, rej) => {
       request({url: urls.course(this), encoding: null}, (err, http, body) => {
-        const $ = cheerio.load(iconv.decode(body, 'ISO-8859-1'))
+        const $ = cheerio.load(iconv.decode(body, 'utf-8'))
         const resourcesLink = $('a.icon-sakai-resources').attr('href')
         request({url: resourcesLink, encoding: null}, (err, http, body) => {
-          const $ = cheerio.load(iconv.decode(body, 'ISO-8859-1'))
+          const $ = cheerio.load(iconv.decode(body, 'utf-8'))
           const resourcesLink = $('div.title').find('a').attr('href')
-          if (this.acronym !== 'ENF400') {
-            // TODO: REMOVE THIS PIECE OF CODE DUMBASS
-            return res(this)
-          }
           return this.scrapResources(resourcesLink)
         })
       })
@@ -41,24 +45,73 @@ class Course {
 
   scrapResources(link) {
     return new Promise((res, rej) => {
+      console.log(`Parsing ${this.path()}`)
       request({url: link, encoding: null}, (err, http, body) => {
-        const $ = cheerio.load(iconv.decode(body, 'ISO-8859-1'))
-        const data = $('table.centerLines')
+        const $ = cheerio.load(iconv.decode(body, 'utf-8'))
+        const folders = $('table.centerLines')
           .find('h4')
           .find('a')
           .toArray()
-          .map(i => $(i).text().replace(/[\t\r\n]+/g, ''))
-        console.log(data)
-        // const table = $('table')
+          .map(data => {
+            const name = $(data).text().replace(/[\t\r\n]+/g, '')
+            if (!name) {
+              return {}
+            }
+            const regex = /value='\/group\/([a-zA-Zá-úÁ-Ú\d-\/ ]+)'/g
+            const onclick = $(data).attr('onclick')
+            const href = $(data).attr('href')
 
-        // $('table.lines').find('a').each((i, l) => {
-        //   console.log('i')
-        //   console.log(i)
-        //   console.log('l')
-        //   console.log(l)
-        // })
-        res(this)
+            if (onclick) {
+              // It's a folder
+              const match = onclick.match(regex)
+              if (!match) {
+                warning(`Couldn't parse a link\n${onclick}`)
+                return {}
+              }
+              const exec = regex.exec(match[0])
+              const id = exec[1]
+              return {name, id, folder: true}
+            }
+
+            if (href) {
+              // It's a file
+              return {name, link: href, file: true}
+            }
+          })
+          .filter(d => d.name)
+          .forEach(d => {
+            if (d.folder) {
+              const f = new folder(d, this)
+              this.folders[f.id] = f
+            }
+            if (d.file) {
+              const f = new file(d, this)
+              this.files[f.id] = f
+            }
+          })
+        return this.scrapFolders(link)
       })
+    })
+  }
+
+  scrapFolders(link) {
+    const folders = Object.values(this.folders)
+    return folders.reduce(
+      (promise, folder) =>
+        promise.then(() => {
+          console.log(folder.name)
+          return this.scrapFolder(link, folder)
+        }),
+      Promise.resolve()
+    )
+  }
+
+  scrapFolder(link, folder) {
+    console.log('AJA1')
+    return new Promise((res, rej) => {
+      console.log('AJA2')
+      console.log(`Parsing ${folder.name}`)
+      res(this)
     })
   }
   // return new Promise((res, rej) => {
@@ -100,7 +153,7 @@ class Course {
   }
 
   searchFoldersAndFiles(body, parent) {
-    // const $ = cheerio.load(iconv.decode(body, 'ISO-8859-1'));
+    // const $ = cheerio.load(iconv.decode(body, 'utf-8'));
     // const newFolders = [];
     // $('a').each((i, l) => {
     //   const link = $(l).attr('href');

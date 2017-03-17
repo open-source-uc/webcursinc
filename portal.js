@@ -34,7 +34,7 @@ class Portal {
           const validFilter = c => c && c.acronym
           const ignoreFilter = c => ignore.indexOf(c.acronym) === -1
           const courseObject = d => new course(d)
-          const $ = cheerio.load(iconv.decode(body, 'ISO-8859-1'))
+          const $ = cheerio.load(iconv.decode(body, 'utf-8'))
           const coursesUpperBar = $('ul#siteLinkList')
             .find('li')
             .find('a')

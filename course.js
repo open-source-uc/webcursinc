@@ -126,7 +126,7 @@ class Course {
     return new Promise((res, rej) => {
       request({url: link, encoding: null}, (err, http, body) => {
         const $ = cheerio.load(iconv.decode(body, 'utf-8'))
-        console.log($.html())
+        // console.log($.html())
         res()
       })
     })

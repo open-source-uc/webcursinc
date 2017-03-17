@@ -116,8 +116,6 @@ class Course {
         rt_action: '',
         selectedItemId: ''
       }
-      console.log(link)
-      console.log(body)
       request.post({url: link, encoding: null, form: body}, () => {
         return this.scrapFolderBody(link, folder).then(res)
       })

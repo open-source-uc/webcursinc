@@ -112,4 +112,5 @@ run = () => {
 
 updateNotifier({pkg}).notify()
 console.log('Welcome to webcursinc!')
+console.log(`Version ${pkg.version}`)
 run()

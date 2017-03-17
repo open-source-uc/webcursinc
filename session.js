@@ -16,20 +16,8 @@ class Session {
     return new Promise((res, rej) =>
       request.post({url: urls.login, form: body}, (err, http, body) => {
         console.log('Checking login')
-        // Check login succedded
-        // rej() if not
         res()
-        // return request.post({url: urls.portal}, (err, http, body) => {
-        //   console.log('body');
-        //   console.log(body);
-        //   res();
-        // });
       }))
-  }
-
-  sync(path) {
-    // console.log('sync');
-    // console.log(path);
   }
 }
 

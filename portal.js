@@ -27,7 +27,7 @@ class Portal {
               semester: nameRegex[2],
               acronym: nameRegex[3].toUpperCase(),
               section: nameRegex[4],
-              name: nameRegex[5],
+              name: nameRegex[5]
             }
             return courseData
           }

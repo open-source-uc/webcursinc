@@ -10,7 +10,7 @@ class Session {
   login() {
     const body = {
       _username: this.username,
-      _password: this.password,
+      _password: this.password
     }
     console.log('Starting login')
     return new Promise((res, rej) =>

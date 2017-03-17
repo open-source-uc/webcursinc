@@ -19,18 +19,18 @@ data = () => {
       username: {
         pattern: /^[a-zA-Z\d]+$/,
         message: 'Username without @uc',
-        required: true,
+        required: true
       },
       password: {
         required: true,
         hidden: true,
-        replace: '*',
+        replace: '*'
       },
       path: {
-        required: true,
+        required: true
       },
-      ignore: {},
-    },
+      ignore: {}
+    }
   }
   prompt.start()
   const saveData = (err, result) => {
@@ -55,7 +55,7 @@ sync = data => {
       const found = courses.map(c => ({
         name: c.name,
         folders: Object.keys(c.folders).length,
-        files: Object.keys(c.files).length,
+        files: Object.keys(c.files).length
       }))
       console.log(found)
     })
@@ -65,13 +65,13 @@ sync = data => {
 options = {
   data: data,
   sync: sync,
-  exit: () => {},
+  exit: () => {}
 }
 
 optionsDescriptions = {
   data: 'Update your data',
   sync: 'Download everythang',
-  exit: 'Exit',
+  exit: 'Exit'
 }
 
 run = () => {

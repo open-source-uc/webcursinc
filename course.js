@@ -27,6 +27,10 @@ class Course {
     this.files = {}
   }
 
+  folderGroup() {
+    return `${this.acronym.toLowerCase()}-${this.section}-${this.semester}-${this.year}`
+  }
+
   scrap() {
     this.folders = {}
     this.files = {}
@@ -37,7 +41,7 @@ class Course {
         request({url: resourcesLink, encoding: null}, (err, http, body) => {
           const $ = cheerio.load(iconv.decode(body, 'utf-8'))
           const resourcesLink = $('div.title').find('a').attr('href')
-          return this.scrapResources(resourcesLink)
+          return this.scrapResources(resourcesLink).then(() => res(this))
         })
       })
     })
@@ -89,29 +93,44 @@ class Course {
               this.files[f.id] = f
             }
           })
-        return this.scrapFolders(link)
+        return Object.values(this.folders)
+          .reduce(
+            (p, f) =>
+              p.then(() => this.scrapFolder(link.replace(/-reset/g, ''), f)),
+            Promise.resolve()
+          )
+          .then(res)
       })
     })
   }
 
-  scrapFolders(link) {
-    const folders = Object.values(this.folders)
-    return folders.reduce(
-      (promise, folder) =>
-        promise.then(() => {
-          console.log(folder.name)
-          return this.scrapFolder(link, folder)
-        }),
-      Promise.resolve()
-    )
+  scrapFolder(link, folder) {
+    return new Promise((res, rej) => {
+      console.log(`Parsing ${folder.name}`)
+      const body = {
+        source: 0,
+        collectionId: `/group/${this.folderGroup()}/${folder.name}/`,
+        navRoot: '',
+        criteria: 'title',
+        sakai_action: 'doNavigate',
+        rt_action: '',
+        selectedItemId: ''
+      }
+      console.log(link)
+      console.log(body)
+      request.post({url: link, encoding: null, form: body}, () => {
+        return this.scrapFolderBody(link, folder).then(res)
+      })
+    })
   }
 
-  scrapFolder(link, folder) {
-    console.log('AJA1')
+  scrapFolderBody(link, folder) {
     return new Promise((res, rej) => {
-      console.log('AJA2')
-      console.log(`Parsing ${folder.name}`)
-      res(this)
+      request({url: link, encoding: null}, (err, http, body) => {
+        const $ = cheerio.load(iconv.decode(body, 'utf-8'))
+        console.log($.html())
+        res()
+      })
     })
   }
   // return new Promise((res, rej) => {
@@ -132,25 +151,25 @@ class Course {
   //   });
   // });
 
-  scrapFolder(folder) {
-    // return new Promise((res, rej) => {
-    //   request({url: folder.url, encoding: null}, (err, http, body) => {
-    //     if (err) {
-    //       rej(err);
-    //     }
-    //     console.log(`Parsing ${folder.name}`);
-    //     const newFolders = this.searchFoldersAndFiles(body, folder);
-    //     if (newFolders.length === 0) {
-    //       return res();
-    //     }
-    //     Promise.all(
-    //       newFolders.map(folder => this.scrapFolder(folder)),
-    //     ).then(() => {
-    //       res();
-    //     });
-    //   });
-    // });
-  }
+  // scrapFolder(folder) {
+  // return new Promise((res, rej) => {
+  //   request({url: folder.url, encoding: null}, (err, http, body) => {
+  //     if (err) {
+  //       rej(err);
+  //     }
+  //     console.log(`Parsing ${folder.name}`);
+  //     const newFolders = this.searchFoldersAndFiles(body, folder);
+  //     if (newFolders.length === 0) {
+  //       return res();
+  //     }
+  //     Promise.all(
+  //       newFolders.map(folder => this.scrapFolder(folder)),
+  //     ).then(() => {
+  //       res();
+  //     });
+  //   });
+  // });
+  // }
 
   searchFoldersAndFiles(body, parent) {
     // const $ = cheerio.load(iconv.decode(body, 'utf-8'));

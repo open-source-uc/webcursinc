@@ -84,7 +84,7 @@ sync = data => {
           folders: Object.keys(c.folders).length,
           files: Object.keys(c.files).length
         }))
-        console.log(found)
+        coursesSummary(found)
       })
       .catch(err => error(err, 'Running sync'))
   })

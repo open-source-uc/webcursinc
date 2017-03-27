@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Login using [@wachunei] direct uc login
 - Get courses list [@negebauer]
 - Format courses name using [@aaossa] formatter
+- Get course folders and files [@negebauer]
 
 [Unreleased]: https://github.com/open-source-uc/sincding/compare/83e9b152a79f3616dd7d10143f0ebf50056c52fe...HEAD
 

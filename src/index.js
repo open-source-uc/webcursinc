@@ -85,6 +85,25 @@ sync = data => {
           files: Object.keys(c.files).length
         }))
         coursesSummary(found)
+        console.log('\nDownload:')
+        const downloads = courses.map(c => ({
+          name: c.name,
+          folders: Object.keys(c.folders)
+            .filter(id => c.folders[id].shouldCreate(data.path))
+            .map(id => c.folders[id]),
+          files: Object.keys(c.files)
+            .filter(id => c.files[id].shouldDownload(data.path))
+            .map(id => c.files[id])
+        }))
+        const downloadNumbers = downloads.map(download => ({
+          name: download.name,
+          folders: download.folders.length,
+          files: download.files.length
+        }))
+        coursesSummary(downloadNumbers)
+        console.log('\nCreating missing folders...')
+        courses.forEach(course => course.createFolder(data.path))
+        downloads.forEach(d => d.folders.forEach(f => f.create(data.path)))
       })
       .catch(err => error(err, 'Running sync'))
   })

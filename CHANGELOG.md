@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [//]: # (Fixed)
 [//]: # (Security)
 
+## [1.0.1] - 2016-03-27
+### Changed
+- Readme [@negebauer]
 
 ## [1.0.0] - 2016-03-27
 ### Added

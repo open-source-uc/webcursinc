@@ -104,6 +104,12 @@ sync = data => {
         console.log('\nCreating missing folders...')
         courses.forEach(course => course.createFolder(data.path))
         downloads.forEach(d => d.folders.forEach(f => f.create(data.path)))
+        console.log('\nStarting downloads, this may take a while...')
+        const files = downloads
+          .map(download => download.files)
+          .reduce((total, arr) => total.concat(arr))
+        Promise.all(files.map(file => file.download(data.path))).then(() =>
+          console.log('\nFinished downloading!'))
       })
       .catch(err => error(err, 'Running sync'))
   })

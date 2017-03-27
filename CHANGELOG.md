@@ -12,13 +12,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [//]: # (Fixed)
 [//]: # (Security)
 
+
+## [1.0.0] - 2016-03-27
 ### Added
 - Login using [@wachunei] direct uc login
 - Get courses list [@negebauer]
 - Format courses name using [@aaossa] formatter
 - Get course folders and files [@negebauer]g
+- Download files [@negebauer]
 
-[Unreleased]: https://github.com/open-source-uc/sincding/compare/83e9b152a79f3616dd7d10143f0ebf50056c52fe...HEAD
+[Unreleased]: https://github.com/open-source-uc/sincding/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/open-source-uc/sincding/compare/83e9b152a79f3616dd7d10143f0ebf50056c52fe...v1.0.0
 
 ## Contributors
 

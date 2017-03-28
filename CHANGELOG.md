@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [//]: # (Fixed)
 [//]: # (Security)
 
+## [1.0.3] - 2016-03-27
+### Fixed
+- Messages referencing sincding [@negebauer]
+- Install not showing command
+
 ## [1.0.2] - 2016-03-27
 ### Changed
 - Bin call [@negebauer]

@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --ignore-pattern '!node_modules/*' --fix ./"
+    "lint": "eslint --ignore-pattern '!node_modules/*' --fix ./",
+    "deploy": "./scripts/deploy.sh"
   },
   "repository": {
     "type": "git",

@@ -5,12 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-[//]: # (Added)
-[//]: # (Changed)
-[//]: # (Deprecated)
-[//]: # (Removed)
-[//]: # (Fixed)
-[//]: # (Security)
+[//]: ### (Added)
+[//]: ### (Changed)
+[//]: ### (Deprecated)
+[//]: ### (Removed)
+[//]: ### (Fixed)
+[//]: ### (Security)
+
+## [1.0.5] - 2016-03-28
+### Removed
+- Some logs [@negebauer]
 
 ## [1.0.4] - 2016-03-28
 ### Fixed
@@ -37,7 +41,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Get course folders and files [@negebauer]g
 - Download files [@negebauer]
 
-[Unreleased]: https://github.com/open-source-uc/webcursinc/compare/v1.0.4...HEAD
+[Unreleased]: https://github.com/open-source-uc/webcursinc/compare/v1.0.5...HEAD
+[1.0.5]: https://github.com/open-source-uc/webcursinc/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/open-source-uc/webcursinc/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/open-source-uc/webcursinc/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/open-source-uc/webcursinc/compare/v1.0.1...v1.0.3

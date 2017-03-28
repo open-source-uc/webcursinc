@@ -1,6 +1,6 @@
 {
   "name": "webcursinc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CLI to download Webcurso files",
   "main": "src/index.js",
   "scripts": {

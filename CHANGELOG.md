@@ -33,10 +33,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Get course folders and files [@negebauer]g
 - Download files [@negebauer]
 
-[Unreleased]: https://github.com/open-source-uc/sincding/compare/v1.0.2...HEAD
-[1.0.2]: https://github.com/open-source-uc/sincding/compare/v1.0.1...v1.0.2
-[1.0.1]: https://github.com/open-source-uc/sincding/compare/v1.0.0...v1.0.1
-[1.0.0]: https://github.com/open-source-uc/sincding/compare/83e9b152a79f3616dd7d10143f0ebf50056c52fe...v1.0.0
+[Unreleased]: https://github.com/open-source-uc/webcursinc/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/open-source-uc/webcursinc/compare/v1.0.1...v1.0.2
+[1.0.1]: https://github.com/open-source-uc/webcursinc/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/open-source-uc/webcursinc/compare/83e9b152a79f3616dd7d10143f0ebf50056c52fe...v1.0.0
 
 ## Contributors
 

@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [//]: # (Fixed)
 [//]: # (Security)
 
+## [1.0.4] - 2016-03-28
+### Fixed
+- Opening folder failed for some folder names. Trim name to fix [@negebauer]
+
 ## [1.0.3] - 2016-03-27
 ### Fixed
 - Messages referencing sincding [@negebauer]

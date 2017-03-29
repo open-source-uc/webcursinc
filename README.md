@@ -1,6 +1,7 @@
 # Webcursinc
 
-[![npm version](https://badge.fury.io/js/webcursinc.svg)](https://badge.fury.io/js/webcursinc)
+![npm version](https://badge.fury.io/js/webcursinc.svg)
+![dependencies](https://david-dm.org/open-source-uc/webcursinc.svg)
 
 Webcursinc allows you to download the files from uc webcurso in an easy way
 

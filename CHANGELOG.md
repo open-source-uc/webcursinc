@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [//]: ### (Fixed)
 [//]: ### (Security)
 
+## [1.0.7] - 2016-04-07
+### Fixed
+- Fix course section regex [#6](https://github.com/open-source-uc/webcursinc/issues/6#issuecomment-292665433) [@negebauer]
+
 ## [1.0.6] - 2016-03-30
 ### Fixed
 - Parsing folder name with `.` character url [@negebauer]
@@ -51,7 +55,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Get course folders and files [@negebauer]g
 - Download files [@negebauer]
 
-[Unreleased]: https://github.com/open-source-uc/webcursinc/compare/v1.0.6...HEAD
+[Unreleased]: https://github.com/open-source-uc/webcursinc/compare/v1.0.7...HEAD
+[1.0.7]: https://github.com/open-source-uc/webcursinc/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/open-source-uc/webcursinc/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/open-source-uc/webcursinc/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/open-source-uc/webcursinc/compare/v1.0.3...v1.0.4

@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [//]: ### (Fixed)
 [//]: ### (Security)
 
+### Added
+- Circle CI integration [@negebauer]
+
 ## [1.0.7] - 2016-04-07
 ### Fixed
 - Fix course section regex [#6](https://github.com/open-source-uc/webcursinc/issues/6#issuecomment-292665433) [@negebauer]

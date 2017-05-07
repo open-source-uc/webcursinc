@@ -109,7 +109,8 @@ sync = data => {
           .map(download => download.files)
           .reduce((total, arr) => total.concat(arr))
         Promise.all(files.map(file => file.download(data.path))).then(() =>
-          console.log('\nFinished downloading!'))
+          console.log('\nFinished downloading!')
+        )
       })
       .catch(err => error(err, 'Running sync'))
   })

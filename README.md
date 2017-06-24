@@ -1,5 +1,7 @@
 # Webcursinc
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/open-source-uc/webcursinc.svg)](https://greenkeeper.io/)
+
 [![npm version](https://badge.fury.io/js/webcursinc.svg)](https://badge.fury.io/js/webcursinc)
 [![dependencies](https://david-dm.org/open-source-uc/webcursinc.svg)](https://david-dm.org/open-source-uc/webcursinc)
 

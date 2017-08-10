@@ -12,11 +12,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [//]: ### (Fixed)
 [//]: ### (Security)
 
+## [1.0.8] - 2016-08-10
 ### Added
 - Circle CI integration [@negebauer]
 
 ### Fixed
 - Missing _ in folder value regex [@negebauer]
+- Fix #15 #13 #8 #7 [@negebauer]
 
 ## [1.0.7] - 2016-04-07
 ### Fixed

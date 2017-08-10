@@ -196,10 +196,8 @@ run = () => {
   prompt.get(['command'], runCommand)
 }
 
-const notifier = updateNotifier({
-  pkg,
-  updateCheckInterval: 1000 * 60 * 60 // 1 hour
-}).notify()
+const updateCheckInterval = 1000 * 30
+updateNotifier({ pkg, updateCheckInterval }).notify() // 30 second
 console.log('Welcome to webcursinc!')
 console.log(`Version ${pkg.version}`)
 run()

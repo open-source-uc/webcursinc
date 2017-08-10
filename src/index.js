@@ -141,15 +141,22 @@ optionsDescriptions = {
   exit: 'Exit sincding'
 }
 
+const loadUserData = () => {
+  let userData = null
+  try {
+    userData = JSON.parse(
+      fs.readFileSync(`${userDataFolder}/data.json`, 'utf8')
+    )
+  } catch (err) {
+    console.error('Could\'t load user data')
+  }
+  return userData
+}
+
 run = () => {
   console.log('')
   // Load user data
-  let userData
-  try {
-    userData = require(`${userDataFolder}/data.json`)
-  } catch (err) {
-    userData = null
-  }
+  const userData = loadUserData()
   if (!userData) {
     return data()
   }

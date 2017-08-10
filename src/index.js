@@ -126,7 +126,7 @@ coursesSummary = courses =>
   })
 
 exit = () => {
-  console.log('\nTerminated sincding')
+  console.log('\nTerminated webcursinc')
 }
 
 options = {
@@ -137,8 +137,8 @@ options = {
 
 optionsDescriptions = {
   data: 'Update your user data',
-  sync: 'Download sincding files',
-  exit: 'Exit sincding'
+  sync: 'Download webcursinc files',
+  exit: 'Exit webcursinc'
 }
 
 const loadUserData = () => {

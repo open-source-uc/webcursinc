@@ -2,9 +2,15 @@
 
 [![CircleCI](https://circleci.com/gh/open-source-uc/webcursinc.svg?style=svg)](https://circleci.com/gh/open-source-uc/webcursinc)
 [![npm version](https://badge.fury.io/js/webcursinc.svg)](https://badge.fury.io/js/webcursinc)
-[![BCH compliance](https://bettercodehub.com/edge/badge/open-source-uc/webcursinc?branch=dev)](https://bettercodehub.com/)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![dependencies](https://david-dm.org/open-source-uc/webcursinc.svg)](https://david-dm.org/open-source-uc/webcursinc)
+
+[![codebeat badge](https://codebeat.co/badges/f4dde428-8e66-46ae-bef6-cbc76f9e1025)](https://codebeat.co/projects/github-com-open-source-uc-webcursinc-dev)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3f093249474d432e92825a14599632e0)](https://www.codacy.com/app/negebauer/webcursinc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=open-source-uc/webcursinc&amp;utm_campaign=Badge_Grade)
+[![BCH compliance](https://bettercodehub.com/edge/badge/open-source-uc/webcursinc?branch=dev)](https://bettercodehub.com/)
+[![Code Climate](https://codeclimate.com/github/open-source-uc/webcursinc/badges/gpa.svg)](https://codeclimate.com/github/open-source-uc/webcursinc)
+[![Test Coverage](https://codeclimate.com/github/open-source-uc/webcursinc/badges/coverage.svg)](https://codeclimate.com/github/open-source-uc/webcursinc/coverage)
+[![Issue Count](https://codeclimate.com/github/open-source-uc/webcursinc/badges/issue_count.svg)](https://codeclimate.com/github/open-source-uc/webcursinc)
 
 Webcursinc allows you to download the files from uc webcurso in an easy way
 
